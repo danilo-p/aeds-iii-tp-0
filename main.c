@@ -10,7 +10,6 @@
  */
 int main()
 {
-    printf("hello world\n"); /** @bug asdklfjasd */
     testHeader();
     return 0;
 }
