@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "headers/test/test.h"
+#include "test.h"
 
 /**
  * @brief      Main function

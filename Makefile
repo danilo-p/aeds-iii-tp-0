@@ -1,25 +1,31 @@
 SHELL:=/bin/bash -O globstar
 
-OBJ_DIR=obj/
-BIN_DIR=bin/
-HEADER_DIR=headers/
+OBJ_DIR=obj
+BIN_DIR=bin
+SRC_DIR=src
+INC_DIR=include
+
+SRC=$(wildcard $(SRC_DIR)/*.c)
+OBJ=$(addprefix $(OBJ_DIR)/, $(notdir $(SRC)))
+
+CFLAGS += -Wall -I$(INC_DIR) -lm
 
 all: setup main run docs
 
 main: main.o
-	gcc -Wall -o $(BIN_DIR)main $(HEADER_DIR)**/*.c $(OBJ_DIR)main.o
+	gcc $(CFLAGS) -o $(OBJ) $(SRC) $(OBJ_DIR)/main.o
 
 main.o:
-	gcc -Wall -o $(OBJ_DIR)main.o -c main.c
+	gcc $(CFLAGS) -o $(OBJ_DIR)/main.o -c main.c
 
 setup:
 	mkdir -p $(BIN_DIR) $(OBJ_DIR)
 
 run:
-	exec $(BIN_DIR)main
+	exec $(BIN_DIR)/main
 
 clean:
-	rm -f $(OBJ_DIR)* $(BIN_DIR)*
+	rm -f $(OBJ_DIR)/* $(BIN_DIR)/*
 
 docs:
 	doxygen
