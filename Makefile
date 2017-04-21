@@ -9,7 +9,9 @@ SRC=$(wildcard $(SRC_DIR)/*.c)
 
 CFLAGS += -Wall -I$(INC_DIR) -lm
 
-all: setup main run docs
+.PHONY: all docs
+
+all: setup main docs
 
 main: main.o
 	gcc -Wall -lm -o $(BIN_DIR)/main $(SRC) $(OBJ_DIR)/main.o -I$(INC_DIR)
