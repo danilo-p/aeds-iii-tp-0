@@ -1,9 +1,11 @@
 SHELL:=/bin/bash -O globstar
 
+ROOT_DIR=$(pwd)
 OBJ_DIR=obj
 BIN_DIR=bin
 SRC_DIR=src
 INC_DIR=include
+DOCS_DIR=docs
 
 SRC=$(wildcard $(SRC_DIR)/*.c)
 
@@ -11,7 +13,7 @@ CFLAGS += -Wall -I$(INC_DIR) -lm
 
 .PHONY: all docs
 
-all: setup main docs
+all: setup main run
 
 main: main.o
 	gcc -Wall -lm -o $(BIN_DIR)/main $(SRC) $(OBJ_DIR)/main.o -I$(INC_DIR)
@@ -29,4 +31,4 @@ clean:
 	rm -f $(OBJ_DIR)/* $(BIN_DIR)/*
 
 docs:
-	doxygen
+	doxygen && cd $(DOCS_DIR)/latex && make
