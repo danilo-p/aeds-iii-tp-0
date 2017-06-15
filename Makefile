@@ -4,22 +4,21 @@ ROOT_DIR=$(pwd)
 OBJ_DIR=obj
 BIN_DIR=bin
 SRC_DIR=src
-INC_DIR=include
 DOCS_DIR=docs
 
-SRC=$(wildcard $(SRC_DIR)/*.c)
+SRC=$(wildcard $(SRC_DIR)/**/*.c)
 
-CFLAGS += -Wall -I$(INC_DIR) -lm
+CFLAGS += -Wall -Werror -Wextra -lm
 
 .PHONY: all docs
 
-all: setup main run
+all: setup main
 
 main: main.o
-	gcc -Wall -lm -o $(BIN_DIR)/main $(SRC) $(OBJ_DIR)/main.o -I$(INC_DIR)
+	gcc $(SRC) $(OBJ_DIR)/main.o -o $(BIN_DIR)/main $(CFLAGS)
 
 main.o:
-	gcc -Wall -lm -o $(OBJ_DIR)/main.o -c main.c -I$(INC_DIR)
+	gcc -c $(SRC_DIR)/main.c -o $(OBJ_DIR)/main.o $(CFLAGS)
 
 setup:
 	mkdir -p $(BIN_DIR) $(OBJ_DIR)

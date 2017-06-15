@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "test.h"
+#include "lib/test.h"
 
 /**
  * @brief      Main function
@@ -8,8 +8,7 @@
  *
  * @return     0
  */
-int main()
-{
+int main() {
     testHeader();
     return 0;
 }
