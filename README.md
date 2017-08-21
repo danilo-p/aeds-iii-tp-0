@@ -1,15 +1,11 @@
-# C Boilerplate
+# Trabalho Prático 0 - AEDS III
 
-C Boilerplate is a fast way to bootstrap a C project. It comes prepared with documentation, headers and make support.
+A especificação dada está no arquivo `Especificação.pdf`. A documentação do trabalho está disponível no arquivo `Documentação.pdf`.
 
-## Setup
+## Compilação
 
-Execute *make* command to compile the program. Binaries and Objects will be at the `/bin` and `/obj` directories, respectively.
+Para compilar o programa, execute o comando `make`. Ele executará as tasks `setup` e `main`. A task `setup` criará duas pastas na raíz do projeto, `bin` e `obj`, e a task `main` compilará o código. A pasta `bin` conterá o arquivo executável do programa, e a pasta `obj` conterá os arquivos objeto necessários para a compilação do programa.
 
-## Headers
+## Execução
 
-Add headers on the `/headers` folder. If your header name is *foo*, then create a the folder `/headers/foo` with the `foo.c` and `foo.h` files.
-
-## Documentation
-
-Documentation is provided with [Doxygen](http://www.stack.nl/~dimitri/doxygen/). Visit the home page and documentation for details.
+Para executar o programa, execute o comando `make run`.
