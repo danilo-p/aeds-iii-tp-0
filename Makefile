@@ -8,7 +8,7 @@ DOCS_DIR=docs
 
 SRC=$(wildcard $(SRC_DIR)/**/*.c)
 
-CFLAGS += -Wall -Werror -Wextra -lm
+CFLAGS += -Wall -Wextra -Werror -std=c99 -pedantic -O2
 
 .PHONY: all docs
 
