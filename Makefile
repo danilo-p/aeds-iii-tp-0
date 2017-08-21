@@ -33,3 +33,6 @@ clean:
 
 docs:
 	doxygen && cd $(DOCS_DIR)/latex && make
+
+valgrind:
+	valgrind --track-origins=yes --leak-check=full --show-leak-kinds=all ./$(BIN_DIR)/${TARGET}
