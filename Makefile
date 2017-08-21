@@ -15,16 +15,18 @@ CFLAGS += -Wall -Wextra -Werror -std=c99 -pedantic -O2
 all: setup main
 
 main: main.o
-	gcc $(SRC) $(OBJ_DIR)/main.o -o $(BIN_DIR)/main $(CFLAGS)
+	gcc $(SRC) $(OBJ_DIR)/matriz.o -o $(BIN_DIR)/matriz $(CFLAGS)
+	gcc $(SRC) $(OBJ_DIR)/arvore.o -o $(BIN_DIR)/arvore $(CFLAGS)
 
 main.o:
-	gcc -c $(SRC_DIR)/main.c -o $(OBJ_DIR)/main.o $(CFLAGS)
+	gcc -c $(SRC_DIR)/matriz.c -o $(OBJ_DIR)/matriz.o $(CFLAGS)
+	gcc -c $(SRC_DIR)/arvore.c -o $(OBJ_DIR)/arvore.o $(CFLAGS)
 
 setup:
 	mkdir -p $(BIN_DIR) $(OBJ_DIR)
 
 run:
-	exec $(BIN_DIR)/main
+	exec $(BIN_DIR)/${TARGET}
 
 clean:
 	rm -f $(OBJ_DIR)/* $(BIN_DIR)/*
