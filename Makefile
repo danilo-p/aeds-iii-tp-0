@@ -26,7 +26,7 @@ setup:
 	mkdir -p $(BIN_DIR) $(OBJ_DIR)
 
 run:
-	exec $(BIN_DIR)/${TARGET}
+	exec $(BIN_DIR)/${TARGET} ${ARGS}
 
 clean:
 	rm -f $(OBJ_DIR)/* $(BIN_DIR)/*

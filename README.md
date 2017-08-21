@@ -8,4 +8,4 @@ Para compilar o programa, execute o comando `make`. Ele executará as tasks `set
 
 ## Execução
 
-Para executar o programa, execute o comando `make TARGET="nome do executável" run`. Um exemplo de como executar o programa `arvore` seria `make TARGET="arvore" run`.
+Para executar o programa, execute o comando `make TARGET="nome do executável" ARGS="argumentos para o programa" run`. Um exemplo de como executar o programa `arvore` seria `make TARGET="arvore" ARGS="in_1.in out_1.out" run`.
