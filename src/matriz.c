@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "lib/io.h"
 
 /**
@@ -18,13 +19,15 @@ int main(int argc, char *argv[]) {
 
     printf("%d %d\n", n, m);
 
-    int array[n], i;
+    int *array = malloc(sizeof(int) * n), i;
     for(i = 0; i < n; i++) fscanf(input_file, "%d", &array[i]);
 
     for(i = 0; i < n; i++) printf("%d ", array[i]);
     printf("\n");
 
     IOFiles_close(input_file, output_file);
+
+    free(array);
 
     return 0;
 }
