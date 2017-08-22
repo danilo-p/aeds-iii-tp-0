@@ -28,6 +28,12 @@ setup:
 run:
 	exec $(BIN_DIR)/${TARGET} ${ARGS}
 
+arvore:
+	exec $(BIN_DIR)/arvore io/in_example.in io/out_example.out
+
+matriz:
+	exec $(BIN_DIR)/matriz io/in_example.in io/out_example.out
+
 clean:
 	rm -f $(OBJ_DIR)/* $(BIN_DIR)/*
 

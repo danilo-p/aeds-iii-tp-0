@@ -20,7 +20,7 @@ const char OUTPUT_FILE_OPEN_MODE[] = "w";
  *             Returns -2 if an error ocurred on reading the input file. Returns
  *             -3 if an error ocurred on reading the output file.
  */
-int IOFilesOpen(FILE **in, FILE **out, int argc, char *argv[]) {
+int IOFiles_open(FILE **in, FILE **out, int argc, char *argv[]) {
     // Check if the input has the expected format
     if(argc != 3) return -1;
 
@@ -45,7 +45,7 @@ int IOFilesOpen(FILE **in, FILE **out, int argc, char *argv[]) {
  *
  * @return     Returns 1 in case of success on closing io files. Returns -1 if an error ocurred while closing the input file. Returns -2 if an error ocurred while closing the output file.
  */
-int IOFilesClose(FILE *in, FILE *out) {
+int IOFiles_close(FILE *in, FILE *out) {
     if(fclose(in) != 0) return -1;
     if(fclose(out) != 0) return -2;
 

@@ -3,8 +3,8 @@
 #ifndef IO_H
 #define IO_H
 
-int IOFilesOpen(FILE **in, FILE **out, int argc, char *argv[]);
+int IOFiles_open(FILE **in, FILE **out, int argc, char *argv[]);
 
-int IOFilesClose(FILE *in, FILE *out);
+int IOFiles_close(FILE *in, FILE *out);
 
 #endif
