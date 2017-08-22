@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "lib/io.h"
+#include "lib/matrix.h"
 
 /**
  * @brief      Main function
@@ -20,40 +21,13 @@ int main(int argc, char *argv[]) {
     int *array = malloc(sizeof(int) * n), i;
     for(i = 0; i < n; i++) fscanf(input_file, "%d", &array[i]);
 
-    int ***matrix = malloc(sizeof(int **) * n), j, k;
-    for(i = 0; i < n; i++) {
-        matrix[i] = malloc(sizeof(int *) * n);
-        for(j = 0; j < n; j++) {
-            matrix[i][j] = malloc(sizeof(int) * 3);
-            int min = array[i];
-            int max = array[i];
-            int sum = array[i];
+    int ***matrix = NULL;
 
-            for(k = i+1; k < j; k++) {
-                if(min > array[k]) min = array[k];
-                if(max < array[k]) max = array[k];
-                sum += array[k];
-            }
+    Matrix_build(&matrix, array, n);
 
-            matrix[i][j][0] = min;
-            matrix[i][j][1] = max;
-            matrix[i][j][2] = sum;
-        }
-    }
+    Matrix_print(matrix, n);
 
-    for(i = 0; i < n; i++) {
-        for(j = 0; j < n; j++) {
-            for(k = 0; k < 3; k++) printf("%d ", matrix[i][j][k]);
-            printf("\t");
-        }
-        printf("\n");
-    }
-
-    for(i = 0; i < n; i++) {
-        for(j = 0; j < n; j++) free(matrix[i][j]);
-        free(matrix[i]);
-    }
-    free(matrix);
+    Matrix_destroy(&matrix, n);
 
     IOFiles_close(input_file, output_file);
 
