@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "lib/io.h"
 #include "lib/matrix.h"
 
@@ -26,6 +27,31 @@ int main(int argc, char *argv[]) {
     Matrix_build(&matrix, n);
 
     Matrix_fill(&matrix, array, n);
+
+    char cmd[4];
+    int a, b, j;
+
+    for(i = 0; i < m; i++) {
+        fscanf(input_file, "%s %d %d", cmd, &a, &b);
+
+        printf("%s %d %d\n", cmd, a, b);
+
+        // BUG with the output values
+
+        if(strcmp(cmd, "Add") == 0) {
+            for(j = a - 1; j < b; j++) array[j]++;
+            Matrix_fill(&matrix, array, n);
+        } else if(strcmp(cmd, "Sub") == 0) {
+            for(j = a - 1; j < b; j++) array[j]--;
+            Matrix_fill(&matrix, array, n);
+        } else if(strcmp(cmd, "Min") == 0) {
+            fprintf(output_file, "%d\n", matrix[a-1][b-1][0]);
+        } else if(strcmp(cmd, "Max") == 0) {
+            fprintf(output_file, "%d\n", matrix[a-1][b-1][1]);
+        } else if(strcmp(cmd, "Sum") == 0) {
+            fprintf(output_file, "%d\n", matrix[a-1][b-1][2]);
+        }
+    }
 
     Matrix_print(matrix, n);
 
