@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "io.h"
+#include "util.h"
 
 const char INPUT_FILE_OPEN_MODE[] = "r";
 const char OUTPUT_FILE_OPEN_MODE[] = "w";
@@ -14,27 +15,19 @@ const char OUTPUT_FILE_OPEN_MODE[] = "w";
  * @param      out   Pointer to the output file
  * @param[in]  argc  The argc
  * @param      argv  The argv
- *
- * @return     Returns 1 in case of success on reading io files. Returns -1 if
- *             the arguments of the program dont follow the expected format.
- *             Returns -2 if an error ocurred on reading the input file. Returns
- *             -3 if an error ocurred on reading the output file.
  */
-int IOFiles_open(FILE **in, FILE **out, int argc, char *argv[]) {
-    // Check if the input has the expected format
-    if(argc != 3) return -1;
+void IOFiles_open(FILE **in, FILE **out, int argc, char *argv[]) {
+    if(argc != 3) exit_with_code("Wrong format argument", -1);
 
     char *in_file_name = argv[1], *out_file_name = argv[2];
 
     *in = fopen(in_file_name, INPUT_FILE_OPEN_MODE);
 
-    if(*in == NULL) return -2;
+    if(*in == NULL) exit_with_code("Could not open input file", -1);
 
     *out = fopen(out_file_name, OUTPUT_FILE_OPEN_MODE);
 
-    if(*out == NULL) return -3;
-
-    return 1;
+    if(*out == NULL) exit_with_code("Could not open output file", -1);
 }
 
 /**
@@ -42,12 +35,8 @@ int IOFiles_open(FILE **in, FILE **out, int argc, char *argv[]) {
  *
  * @param      in    Pointer to the input file
  * @param      out   Pointer to the output file
- *
- * @return     Returns 1 in case of success on closing io files. Returns -1 if an error ocurred while closing the input file. Returns -2 if an error ocurred while closing the output file.
  */
-int IOFiles_close(FILE *in, FILE *out) {
-    if(fclose(in) != 0) return -1;
-    if(fclose(out) != 0) return -2;
-
-    return 1;
+void IOFiles_close(FILE *in, FILE *out) {
+    if(fclose(in) != 0) exit_with_code("Could not close input file", -1);
+    if(fclose(out) != 0) exit_with_code("Could not close output file", -1);
 }

@@ -13,7 +13,7 @@
 int main(int argc, char *argv[]) {
     FILE *input_file = NULL, *output_file = NULL;
 
-    if(IOFiles_open(&input_file, &output_file, argc, argv) < 0) return -1;
+    IOFiles_open(&input_file, &output_file, argc, argv);
 
     int n, m;
     fscanf(input_file, "%d %d", &n, &m);
@@ -23,7 +23,9 @@ int main(int argc, char *argv[]) {
 
     int ***matrix = NULL;
 
-    Matrix_build(&matrix, array, n);
+    Matrix_build(&matrix, n);
+
+    Matrix_fill(&matrix, array, n);
 
     Matrix_print(matrix, n);
 
