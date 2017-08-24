@@ -7,11 +7,14 @@
 /**
  * @brief      Main function
  *
- *             This is the main function of the project.
+ *             This function uses the Nubby solution based on a matrix that
+ *             stores the data for each possible interval.
  *
  * @return     0
  */
 int main() {
+    /*----------  Initialization  ----------*/
+
     int n, m;
     scanf("%d %d", &n, &m);
 
@@ -21,6 +24,8 @@ int main() {
     Cell **matrix = Matrix_create(n);
 
     Matrix_fill(matrix, array, n);
+
+    /*----------  Manipulation of the matrix  ----------*/
 
     char cmd[4];
     int a, b, j;
@@ -42,6 +47,8 @@ int main() {
             printf("%d\n", matrix[a-1][b-1].sum);
         }
     }
+
+    /*----------  Finalization  ----------*/
 
     Matrix_destroy(matrix, n);
 
