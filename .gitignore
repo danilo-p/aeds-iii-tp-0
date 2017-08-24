@@ -1,5 +1,6 @@
 bin
 obj
 docs
+io
 .vscode
 vgcore.*
