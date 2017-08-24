@@ -38,3 +38,30 @@ void Cell_destroy(Cell *cell) {
 void Cell_print(Cell cell) {
     printf("%d,%d,%d", cell.min, cell.max, cell.sum);
 }
+
+/**
+ * @brief      Fill the cell data with the given array and intervals
+ *
+ * @param      cell   The cell
+ * @param      array  The array
+ * @param[in]  i      Start of the interval
+ * @param[in]  j      End of the interval
+ */
+void Cell_fill(Cell *cell, int *array, int i, int j) {
+    cell->i = i;
+    cell->j = j;
+
+    int start = i < j ? i : j;
+    int end   = i > j ? i : j;
+
+    cell->min = array[start];
+    cell->max = array[start];
+    cell->sum = 0;
+
+    int k;
+    for(k = start; k <= end; k++) {
+        if(cell->min > array[k]) cell->min = array[k];
+        if(cell->max < array[k]) cell->max = array[k];
+        cell->sum += array[k];
+    }
+}

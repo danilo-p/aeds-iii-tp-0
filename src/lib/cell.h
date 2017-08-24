@@ -24,4 +24,6 @@ void Cell_destroy(Cell *cell);
 
 void Cell_print(Cell cell);
 
+void Cell_fill(Cell *cell, int *array, int i, int j);
+
 #endif

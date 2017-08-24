@@ -36,26 +36,10 @@ Cell ** Matrix_create(int n) {
  * @param[in]  n       The length of the input array
  */
 void Matrix_fill(Cell **matrix, int *array, int n) {
-    int i, j, k;
-    for(i = 0; i < n; i++) {
-        for(j = 0; j < n; j++) {
-            matrix[i][j].i = i;
-            matrix[i][j].j = j;
-
-            int start = i < j ? i : j;
-            int end   = i > j ? i : j;
-
-            matrix[i][j].min = array[start];
-            matrix[i][j].max = array[start];
-            matrix[i][j].sum = 0;
-
-            for(k = start; k <= end; k++) {
-                if(matrix[i][j].min > array[k]) matrix[i][j].min = array[k];
-                if(matrix[i][j].max < array[k]) matrix[i][j].max = array[k];
-                matrix[i][j].sum += array[k];
-            }
-        }
-    }
+    int i, j;
+    for(i = 0; i < n; i++)
+        for(j = 0; j < n; j++)
+            Cell_fill(&matrix[i][j], array, i, j);
 }
 
 /**
