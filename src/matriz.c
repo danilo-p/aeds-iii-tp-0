@@ -20,7 +20,7 @@ int main() {
 
     Cell **matrix = Matrix_create(n);
 
-    Matrix_fill(&matrix, array, n);
+    Matrix_fill(matrix, array, n);
 
     Matrix_print(matrix, n);
 

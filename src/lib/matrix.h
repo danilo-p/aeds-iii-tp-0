@@ -5,7 +5,7 @@
 
 Cell ** Matrix_create(int n);
 
-void Matrix_fill(Cell ***matrix, int *array, int n);
+void Matrix_fill(Cell **matrix, int *array, int n);
 
 void Matrix_destroy(Cell ***matrix, int n);
 

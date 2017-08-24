@@ -35,7 +35,7 @@ Cell ** Matrix_create(int n) {
  * @param      array   The array
  * @param[in]  n       The length of the input array
  */
-void Matrix_fill(Cell ***matrix, int *array, int n) {
+void Matrix_fill(Cell **matrix, int *array, int n) {
     int i, j, k;
     for(i = 0; i < n; i++) {
         for(j = 0; j < n; j++) {
@@ -49,9 +49,9 @@ void Matrix_fill(Cell ***matrix, int *array, int n) {
                 sum += array[k];
             }
 
-            (*matrix)[i][j].min = min;
-            (*matrix)[i][j].max = max;
-            (*matrix)[i][j].sum = sum;
+            matrix[i][j].min = min;
+            matrix[i][j].max = max;
+            matrix[i][j].sum = sum;
         }
     }
 }
