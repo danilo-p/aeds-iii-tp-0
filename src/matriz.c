@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "lib/io.h"
 #include "lib/matrix.h"
+#include "lib/cell.h"
 
 /**
  * @brief      Main function
@@ -43,7 +43,7 @@ int main() {
         }
     }
 
-    Matrix_destroy(&matrix, n);
+    Matrix_destroy(matrix, n);
 
     free(array);
 
