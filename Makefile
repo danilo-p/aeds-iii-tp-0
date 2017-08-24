@@ -26,13 +26,7 @@ setup:
 	mkdir -p $(BIN_DIR) $(OBJ_DIR)
 
 run:
-	exec $(BIN_DIR)/${TARGET} ${ARGS}
-
-arvore:
-	exec $(BIN_DIR)/arvore io/in_example.in io/out_example.out
-
-matriz:
-	exec $(BIN_DIR)/matriz io/in_example.in io/out_example.out
+	exec $(BIN_DIR)/${TARGET}
 
 clean:
 	rm -f $(OBJ_DIR)/* $(BIN_DIR)/*
@@ -41,4 +35,4 @@ docs:
 	doxygen && cd $(DOCS_DIR)/latex && make
 
 valgrind:
-	valgrind --track-origins=yes --leak-check=full --show-leak-kinds=all ./$(BIN_DIR)/${TARGET} ${ARGS}
+	valgrind --track-origins=yes --leak-check=full --show-leak-kinds=all ./$(BIN_DIR)/${TARGET}

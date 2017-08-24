@@ -11,16 +11,12 @@
  *
  * @return     0
  */
-int main(int argc, char *argv[]) {
-    FILE *input_file = NULL, *output_file = NULL;
-
-    IOFiles_open(&input_file, &output_file, argc, argv);
-
+int main() {
     int n, m;
-    fscanf(input_file, "%d %d", &n, &m);
+    scanf("%d %d", &n, &m);
 
     int *array = malloc(sizeof(int) * n), i;
-    for(i = 0; i < n; i++) fscanf(input_file, "%d", &array[i]);
+    for(i = 0; i < n; i++) scanf("%d", &array[i]);
 
     int ***matrix = NULL;
 
@@ -32,9 +28,7 @@ int main(int argc, char *argv[]) {
     int a, b, j;
 
     for(i = 0; i < m; i++) {
-        fscanf(input_file, "%s %d %d", cmd, &a, &b);
-
-        printf("%s %d %d\n", cmd, a, b);
+        scanf("%s %d %d", cmd, &a, &b);
 
         // BUG with the output values
 
@@ -45,19 +39,15 @@ int main(int argc, char *argv[]) {
             for(j = a - 1; j < b; j++) array[j]--;
             Matrix_fill(&matrix, array, n);
         } else if(strcmp(cmd, "Min") == 0) {
-            fprintf(output_file, "%d\n", matrix[a-1][b-1][0]);
+            printf("%d\n", matrix[a-1][b-1][0]);
         } else if(strcmp(cmd, "Max") == 0) {
-            fprintf(output_file, "%d\n", matrix[a-1][b-1][1]);
+            printf("%d\n", matrix[a-1][b-1][1]);
         } else if(strcmp(cmd, "Sum") == 0) {
-            fprintf(output_file, "%d\n", matrix[a-1][b-1][2]);
+            printf("%d\n", matrix[a-1][b-1][2]);
         }
     }
 
-    Matrix_print(matrix, n);
-
     Matrix_destroy(&matrix, n);
-
-    IOFiles_close(input_file, output_file);
 
     free(array);
 
