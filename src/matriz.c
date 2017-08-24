@@ -10,6 +10,8 @@
  *             This function uses the Nubby solution based on a matrix that
  *             stores the data for each possible interval.
  *
+ *             Complexity: O(n²)
+ *
  * @return     0
  */
 int main() {
