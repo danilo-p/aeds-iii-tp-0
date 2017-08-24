@@ -18,34 +18,34 @@ int main() {
     int *array = malloc(sizeof(int) * n), i;
     for(i = 0; i < n; i++) scanf("%d", &array[i]);
 
-    int ***matrix = NULL;
-
-    Matrix_build(&matrix, n);
+    Cell **matrix = Matrix_create(n);
 
     Matrix_fill(&matrix, array, n);
 
-    char cmd[4];
-    int a, b, j;
+    Matrix_print(matrix, n);
 
-    for(i = 0; i < m; i++) {
-        scanf("%s %d %d", cmd, &a, &b);
+    // char cmd[4];
+    // int a, b, j;
 
-        // BUG with the output values
+    // for(i = 0; i < m; i++) {
+    //     scanf("%s %d %d", cmd, &a, &b);
 
-        if(strcmp(cmd, "Add") == 0) {
-            for(j = a - 1; j < b; j++) array[j]++;
-            Matrix_fill(&matrix, array, n);
-        } else if(strcmp(cmd, "Sub") == 0) {
-            for(j = a - 1; j < b; j++) array[j]--;
-            Matrix_fill(&matrix, array, n);
-        } else if(strcmp(cmd, "Min") == 0) {
-            printf("%d\n", matrix[a-1][b-1][0]);
-        } else if(strcmp(cmd, "Max") == 0) {
-            printf("%d\n", matrix[a-1][b-1][1]);
-        } else if(strcmp(cmd, "Sum") == 0) {
-            printf("%d\n", matrix[a-1][b-1][2]);
-        }
-    }
+    //     // BUG with the output values
+
+    //     if(strcmp(cmd, "Add") == 0) {
+    //         for(j = a - 1; j < b; j++) array[j]++;
+    //         Matrix_fill(&matrix, array, n);
+    //     } else if(strcmp(cmd, "Sub") == 0) {
+    //         for(j = a - 1; j < b; j++) array[j]--;
+    //         Matrix_fill(&matrix, array, n);
+    //     } else if(strcmp(cmd, "Min") == 0) {
+    //         printf("%d\n", matrix[a-1][b-1][0]);
+    //     } else if(strcmp(cmd, "Max") == 0) {
+    //         printf("%d\n", matrix[a-1][b-1][1]);
+    //     } else if(strcmp(cmd, "Sum") == 0) {
+    //         printf("%d\n", matrix[a-1][b-1][2]);
+    //     }
+    // }
 
     Matrix_destroy(&matrix, n);
 
