@@ -22,30 +22,26 @@ int main() {
 
     Matrix_fill(matrix, array, n);
 
-    Matrix_print(matrix, n);
+    char cmd[4];
+    int a, b, j;
 
-    // char cmd[4];
-    // int a, b, j;
+    for(i = 0; i < m; i++) {
+        scanf("%s %d %d", cmd, &a, &b);
 
-    // for(i = 0; i < m; i++) {
-    //     scanf("%s %d %d", cmd, &a, &b);
-
-    //     // BUG with the output values
-
-    //     if(strcmp(cmd, "Add") == 0) {
-    //         for(j = a - 1; j < b; j++) array[j]++;
-    //         Matrix_fill(&matrix, array, n);
-    //     } else if(strcmp(cmd, "Sub") == 0) {
-    //         for(j = a - 1; j < b; j++) array[j]--;
-    //         Matrix_fill(&matrix, array, n);
-    //     } else if(strcmp(cmd, "Min") == 0) {
-    //         printf("%d\n", matrix[a-1][b-1][0]);
-    //     } else if(strcmp(cmd, "Max") == 0) {
-    //         printf("%d\n", matrix[a-1][b-1][1]);
-    //     } else if(strcmp(cmd, "Sum") == 0) {
-    //         printf("%d\n", matrix[a-1][b-1][2]);
-    //     }
-    // }
+        if(strcmp(cmd, "Add") == 0) {
+            for(j = a - 1; j < b; j++) array[j]++;
+            Matrix_fill(matrix, array, n);
+        } else if(strcmp(cmd, "Sub") == 0) {
+            for(j = a - 1; j < b; j++) array[j]--;
+            Matrix_fill(matrix, array, n);
+        } else if(strcmp(cmd, "Min") == 0) {
+            printf("%d\n", matrix[a-1][b-1].min);
+        } else if(strcmp(cmd, "Max") == 0) {
+            printf("%d\n", matrix[a-1][b-1].max);
+        } else if(strcmp(cmd, "Sum") == 0) {
+            printf("%d\n", matrix[a-1][b-1].sum);
+        }
+    }
 
     Matrix_destroy(&matrix, n);
 
