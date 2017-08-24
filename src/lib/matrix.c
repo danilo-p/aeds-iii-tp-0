@@ -39,19 +39,21 @@ void Matrix_fill(Cell **matrix, int *array, int n) {
     int i, j, k;
     for(i = 0; i < n; i++) {
         for(j = 0; j < n; j++) {
-            int min = array[i];
-            int max = array[i];
-            int sum = array[i];
+            matrix[i][j].i = i;
+            matrix[i][j].j = j;
 
-            for(k = i+1; k < j; k++) {
-                if(min > array[k]) min = array[k];
-                if(max < array[k]) max = array[k];
-                sum += array[k];
+            int start = i < j ? i : j;
+            int end   = i > j ? i : j;
+
+            matrix[i][j].min = array[start];
+            matrix[i][j].max = array[start];
+            matrix[i][j].sum = 0;
+
+            for(k = start; k <= end; k++) {
+                if(matrix[i][j].min > array[k]) matrix[i][j].min = array[k];
+                if(matrix[i][j].max < array[k]) matrix[i][j].max = array[k];
+                matrix[i][j].sum += array[k];
             }
-
-            matrix[i][j].min = min;
-            matrix[i][j].max = max;
-            matrix[i][j].sum = sum;
         }
     }
 }
