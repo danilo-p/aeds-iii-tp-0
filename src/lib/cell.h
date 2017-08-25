@@ -7,7 +7,7 @@
  *             This struct stores the max, min and the sum of the interval. Also
  *             stores the i and j indexes.
  */
- struct cell {
+struct cell {
     /** The interval i to j on the array */
     int i, j;
     /** Minimum and Maximum value of the interval */
