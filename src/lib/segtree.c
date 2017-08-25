@@ -14,25 +14,15 @@
  * @param[in]  end      The end of the interval
  */
 void SegTree_construct(Cell *segtree, int pos, int *array, int start, int end) {
-    printf("SegTree_construct start %d %d %d\n", pos, start, end);
-
     if(start == end) {
-        int leaf = array[start];
-
-        printf("----------- leaf %d\n", leaf);
-
-        segtree[pos].min = segtree[pos].max = segtree[pos].sum = leaf;
+        segtree[pos].min = segtree[pos].max = segtree[pos].sum = array[start];
 
         return;
     }
 
     int mid = (start + end) / 2;
 
-    printf("SegTree_construct mid %d %d %d %d\n", pos, start, end, mid);
-
-    printf("SegTree_construct FOLLOWING LEFT %d %d %d\n", pos, start, end);
     SegTree_construct(segtree, 2 * pos + 1, array, start, mid);
-    printf("SegTree_construct FOLLOWING RIGHT %d %d %d\n", pos, start, end);
     SegTree_construct(segtree, 2 * pos + 2, array, mid + 1, end);
 
     Cell left = segtree[2 * pos + 1];
@@ -52,7 +42,7 @@ void SegTree_construct(Cell *segtree, int pos, int *array, int start, int end) {
  */
 int SegTree_size(int n) {
     double nextPower = ceil(log2 (n));
-    return (int) pow(2.0, nextPower);
+    return 2 * pow(2.0, nextPower) - 1;
 }
 
 /**
@@ -64,9 +54,8 @@ int SegTree_size(int n) {
  * @return     A pointer to the created Segment Tree
  */
 Cell * SegTree_create(int *array, int n) {
-    Cell *segtree = malloc(sizeof(Cell) * SegTree_size(n)+1);
-    printf("SegTree_create %d %d\n", n, SegTree_size(n)+1);
-    SegTree_construct(segtree, 0, array, 0, n);
+    Cell *segtree = malloc(sizeof(Cell) * SegTree_size(n));
+    SegTree_construct(segtree, 0, array, 0, n-1);
     return segtree;
 }
 
