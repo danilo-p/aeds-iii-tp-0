@@ -5,7 +5,7 @@
 #include "cell.h"
 
 /**
- * @brief      Recursivelly constructs the Segment Tree
+ * @brief      Recursively constructs the Segment Tree
  *
  * @param      segtree  The segtree
  * @param[in]  pos      The current position on the segtree array
