@@ -23,7 +23,10 @@ int main() {
 
     /*----------  Manipulation of the segtree  ----------*/
 
-    Cell_print(SegTree_query(segtree, 0, n));
+    Cell results = SegTree_query(segtree, n, 1, 5);
+    printf("Query results: ");
+    Cell_print(results);
+    printf("\n");
 
     /*----------  Finalization  ----------*/
 

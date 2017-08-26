@@ -73,28 +73,29 @@ void SegTree_destroy(Cell *segtree) {
  * @brief      Perform a range query on the segment tree recursivelly
  *
  * @param      segtree    The segtree
+ * @param[in]  pos        The position
  * @param[in]  start      The start of the interval (inclusive)
  * @param[in]  end        The end of the interval (inclusive)
  * @param[in]  currStart  The current start of the interval (inclusive)
  * @param[in]  currEnd    The current end of the interval (inclusive)
- * @param[in]  pos        The position
  *
  * @return     The results of the query
  */
-Cell SegTree_rangeQuery(Cell *segtree, int start, int end,
-                    int currStart, int currEnd, int pos) {
-    if(start <= currStart && currEnd <= end)
+Cell SegTree_rangeQuery(Cell *segtree, int pos, int start, int end,
+                    int currStart, int currEnd) {
+    if(start <= currStart && end >= currEnd) // Total interval overlap
         return segtree[pos];
-    else if(start > currEnd || end < currStart)
+    else if(start > currEnd || end < currStart) // No interval overlap
         return (Cell) {
             .min = INT_MAX,
             .max = INT_MIN,
             .sum = 0
         };
 
+    // Partial interval overlap
     int mid = (currStart + currEnd) / 2;
-    Cell left = SegTree_rangeQuery(segtree, start, end, currStart, mid, 2 * pos + 1);
-    Cell right = SegTree_rangeQuery(segtree, start, end, mid + 1, currEnd, 2 * pos + 1);
+    Cell left = SegTree_rangeQuery(segtree, 2 * pos + 1, start, end, currStart, mid);
+    Cell right = SegTree_rangeQuery(segtree, 2 * pos + 2, start, end, mid + 1, currEnd);
 
     return (Cell) {
         .min = left.min < right.min ? left.min : right.min,
@@ -107,11 +108,12 @@ Cell SegTree_rangeQuery(Cell *segtree, int start, int end,
  * @brief      Interface for the recursive range query
  *
  * @param      segtree  The segtree
+ * @param[in]  n        The input array length
  * @param[in]  start    The start of the interval (inclusive)
  * @param[in]  end      The end of the interval (exclusive)
  *
  * @return     The results of the query
  */
-Cell SegTree_query(Cell *segtree, int start, int end) {
-    return SegTree_rangeQuery(segtree, start, end-1, start, end-1, 0);
+Cell SegTree_query(Cell *segtree, int n, int start, int end) {
+    return SegTree_rangeQuery(segtree, 0, start, end-1, 0, n-1);
 }
