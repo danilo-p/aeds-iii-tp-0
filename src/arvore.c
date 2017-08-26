@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "lib/segtree.h"
 #include "lib/cell.h"
 
@@ -27,24 +28,24 @@ int main() {
 
     /*----------  Manipulation of the segtree  ----------*/
 
-    Cell results = SegTree_query(segtree, n, 3, 5);
-    printf("Query results: ");
-    Cell_print(results);
-    printf("\n");
+    char cmd[4];
+    int a, b;
 
-    SegTree_update(segtree, n, 3, 5, add);
+    for(i = 0; i < m; i++) {
+        scanf("%s %d %d", cmd, &a, &b);
 
-    results = SegTree_query(segtree, n, 3, 5);
-    printf("Query results: ");
-    Cell_print(results);
-    printf("\n");
-
-    SegTree_update(segtree, n, 3, 5, sub);
-
-    results = SegTree_query(segtree, n, 3, 5);
-    printf("Query results: ");
-    Cell_print(results);
-    printf("\n");
+        if(strcmp(cmd, "Add") == 0) {
+            SegTree_update(segtree, n, a, b, add);
+        } else if(strcmp(cmd, "Sub") == 0) {
+            SegTree_update(segtree, n, a, b, sub);
+        } else if(strcmp(cmd, "Min") == 0) {
+            printf("%d\n", (SegTree_query(segtree, n, a, b)).min);
+        } else if(strcmp(cmd, "Max") == 0) {
+            printf("%d\n", (SegTree_query(segtree, n, a, b)).max);
+        } else if(strcmp(cmd, "Sum") == 0) {
+            printf("%d\n", (SegTree_query(segtree, n, a, b)).sum);
+        }
+    }
 
     /*----------  Finalization  ----------*/
 
