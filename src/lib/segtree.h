@@ -5,6 +5,8 @@
 
 Cell * SegTree_create(int *array, int n);
 
+Cell SegTree_query(Cell *segtree, int start, int end);
+
 void SegTree_destroy(Cell *segtree);
 
 #endif

@@ -31,7 +31,7 @@ Cell ** Matrix_create(int n) {
 
 /**
  * @brief      Fills the matrix with the given data
- * 
+ *
  *             Complexity: O(n²)
  *
  * @param      matrix  The matrix

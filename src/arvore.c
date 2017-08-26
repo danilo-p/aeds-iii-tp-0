@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "lib/segtree.h"
+#include "lib/cell.h"
 
 /**
  * @brief      Main function
@@ -19,6 +20,10 @@ int main() {
     for(i = 0; i < n; i++) scanf("%d", &array[i]);
 
     Cell *segtree = SegTree_create(array, n);
+
+    /*----------  Manipulation of the segtree  ----------*/
+
+    Cell_print(SegTree_query(segtree, 0, n));
 
     /*----------  Finalization  ----------*/
 
