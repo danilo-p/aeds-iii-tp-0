@@ -131,10 +131,7 @@ void SegTree_rangeUpdate(Cell *segtree, int pos, int start, int end,
                     int currStart, int currEnd,
                     int (*transform)(int n)) {
     // No overlap
-    if(start > currEnd || end < currStart) {
-        printf("No overlap\n");
-        return;
-    }
+    if(start > currEnd || end < currStart) return;
 
     if(currStart == currEnd) {
         segtree[pos].min = segtree[pos].max = segtree[pos].sum = transform(segtree[pos].min);

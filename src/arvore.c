@@ -39,6 +39,13 @@ int main() {
     Cell_print(results);
     printf("\n");
 
+    SegTree_update(segtree, n, 3, 5, sub);
+
+    results = SegTree_query(segtree, n, 3, 5);
+    printf("Query results: ");
+    Cell_print(results);
+    printf("\n");
+
     /*----------  Finalization  ----------*/
 
     SegTree_destroy(segtree);
