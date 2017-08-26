@@ -9,4 +9,6 @@ Cell SegTree_query(Cell *segtree, int n, int start, int end);
 
 void SegTree_destroy(Cell *segtree);
 
+void SegTree_update(Cell *segtree, int n, int start, int end, int (*transform)(int n));
+
 #endif

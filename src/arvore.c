@@ -3,6 +3,10 @@
 #include "lib/segtree.h"
 #include "lib/cell.h"
 
+int add(int a) { return a+1; }
+
+int sub(int a) { return a-1; }
+
 /**
  * @brief      Main function
  *
@@ -23,7 +27,14 @@ int main() {
 
     /*----------  Manipulation of the segtree  ----------*/
 
-    Cell results = SegTree_query(segtree, n, 1, 5);
+    Cell results = SegTree_query(segtree, n, 3, 5);
+    printf("Query results: ");
+    Cell_print(results);
+    printf("\n");
+
+    SegTree_update(segtree, n, 3, 5, add);
+
+    results = SegTree_query(segtree, n, 3, 5);
     printf("Query results: ");
     Cell_print(results);
     printf("\n");
