@@ -11,7 +11,8 @@ int sub(int a) { return a-1; }
 /**
  * @brief      Main function
  *
- *             This is the main function of the project.
+ *             This function uses the Bryan solution based on a Segment Tree
+ *             that stores the input array data.
  *
  * @return     0
  */

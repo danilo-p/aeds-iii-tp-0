@@ -32,7 +32,8 @@ Cell ** Matrix_create(int n) {
 /**
  * @brief      Fills the matrix with the given data
  *
- *             Complexity: O(n²)
+ *             Complexity: O(n³), because the maximum interval given to
+ *             Cell_Fill has size n, and is executed n² times.
  *
  * @param      matrix  The matrix
  * @param      array   The array
