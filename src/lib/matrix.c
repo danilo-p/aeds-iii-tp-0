@@ -3,15 +3,6 @@
 #include "cell.h"
 #include "matrix.h"
 
-/**
- * @brief      Builds the matrix with the given array
- *
- *             Complexity: O(n²)
- *
- * @param[in]  n     The length of the input array
- *
- * @return     A pointer to the created matrix
- */
 Cell ** Matrix_create(int n) {
     Cell **matrix = malloc(sizeof(Cell *) * n);
 
@@ -29,16 +20,6 @@ Cell ** Matrix_create(int n) {
     return matrix;
 }
 
-/**
- * @brief      Fills the matrix with the given data
- *
- *             Complexity: O(n³), because the maximum interval given to
- *             Cell_Fill has size n, and is executed n² times.
- *
- * @param      matrix  The matrix
- * @param      array   The array
- * @param[in]  n       The length of the input array
- */
 void Matrix_fill(Cell **matrix, int *array, int n) {
     int i, j;
     for(i = 0; i < n; i++)
@@ -46,28 +27,12 @@ void Matrix_fill(Cell **matrix, int *array, int n) {
             Cell_fill(&matrix[i][j], array, i, j);
 }
 
-/**
- * @brief      Destroys the matrix
- *
- *             Complexity: O(n)
- *
- * @param      matrix  The matrix
- * @param[in]  n       The length of the input array
- */
 void Matrix_destroy(Cell **matrix, int n) {
     int i;
     for(i = 0; i < n; i++) free(matrix[i]);
     free(matrix);
 }
 
-/**
- * @brief      Prints the matrix
- *
- *             Complexity: O(n²)
- *
- * @param      matrix  The matrix
- * @param[in]  n       The length of the input array
- */
 void Matrix_print(Cell **matrix, int n) {
     int i, j;
     for(i = 0; i < n; i++) {

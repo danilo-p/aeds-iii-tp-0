@@ -2,13 +2,6 @@
 #include <stdlib.h>
 #include "cell.h"
 
-/**
- * @brief      Creates a new cell and initialize it's values with 0
- *
- *             Complexity: O(1)
- *
- * @return     The created cell
- */
 Cell Cell_create() {
     Cell cell;
 
@@ -21,40 +14,14 @@ Cell Cell_create() {
     return cell;
 }
 
-/**
- * @brief      Destroys the given cell
- *
- *             Complexity: O(1)
- *
- * @param      cell  The cell to be destroyed
- */
 void Cell_destroy(Cell *cell) {
     free(cell);
 }
 
-/**
- * @brief      Prints the content of the given cell.
- *
- *             It doesn't print a new line.
- *
- *             Complexity: O(1)
- *
- * @param[in]  cell  The cell
- */
 void Cell_print(Cell cell) {
     printf("%d,%d,%d", cell.min, cell.max, cell.sum);
 }
 
-/**
- * @brief      Fill the cell data with the given array and intervals
- *
- *             Complexity: O(size-end)
- *
- * @param      cell   The cell
- * @param      array  The array
- * @param[in]  i      Start of the interval
- * @param[in]  j      End of the interval
- */
 void Cell_fill(Cell *cell, int *array, int i, int j) {
     cell->i = i;
     cell->j = j;
