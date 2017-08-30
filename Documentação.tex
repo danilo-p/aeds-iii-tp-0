@@ -14,7 +14,7 @@
 
 \section{Introdução}
 
-Este trabalho consiste na implementação do desafio proposto por Bryan de duas formas diferentes: utilizando a matriz de Nubby e a Árvore de Segmentos proposta por Bryan. O objetivo final do trabalho é identificar as possíveis vantagens da abordagem de Bryan para a solução do problema, ou seja, identificar as vantagens de se utilizar a Árvore de Segmentos ao invés da matriz proposta por Nubby.
+Este trabalho consiste na implementação do desafio de Bryan de duas formas diferentes: utilizando a matriz de Nubby e a Árvore de Segmentos proposta por Bryan. O objetivo final do trabalho é identificar as possíveis vantagens da abordagem de Bryan para a solução do problema, ou seja, identificar as vantagens de se utilizar a Árvore de Segmentos ao invés da matriz proposta por Nubby.
 
 \section{Solução do Problema}
 
@@ -42,7 +42,7 @@ O consumo de memória crítico neste problema se refere ao espaço utilizado pel
 
 \subsubsection{Matriz de Nubby}
 
-A complexidade espacial da matriz está ligada à quantidade de linhas e colunas. Seja $n$ o tamanho do vetor de entrada, a matriz criada terá $n$ linhas e $n$ colunas. Logo a complexidade espacial da matriz $O(n^2)$.
+A complexidade espacial da matriz está ligada à quantidade de linhas e colunas. Seja $n$ o tamanho do vetor de entrada, a matriz criada terá $n$ linhas e $n$ colunas. Logo a complexidade espacial da matriz é $O(n^2)$.
 
 \subsubsection{Árvore de Segmentos}
 
@@ -50,7 +50,7 @@ A complexidade espacial da Árvore de Segmentos está relacionada com a sua quan
 
 \begin{itemize}
 \item Se $n$ for uma potência de 2, então a quantidade de nós será $2 \cdot n - 1$.
-\item Senão, precisamos encontrar a próxima potência de 2 depois de $n$, que pode ser calculada encontrando o logatimo de n na base 2, e elevando a 2 o teto do valor encontrado. Assim, a quantidade de nós será $2 \cdot 2^{\ceil[\big]{\log_2 n}} - 1$.
+\item Senão, precisamos encontrar a próxima potência de 2 depois de $n$, que pode ser calculada encontrando o logatimo de $n$ na base 2, e elevando a 2 o teto do valor encontrado. Assim, a quantidade de nós será $2 \cdot 2^{\ceil[\big]{\log_2 n}} - 1$.
 \end{itemize}
 
 Supondo que $n$ não é uma potência de 2, sabemos que o expoente da próxima potência de 2 não passará de ${\log_2 n} + 1$. Assim, a expressão $2 \cdot 2^{\log_2 n + 1} - 1$ pode ser simplificada:
@@ -67,7 +67,7 @@ As operações críticas do problema são a criação, a busca e a atualização
 
 \subsubsection{Matriz de Nubby}
 
-A criação da matriz envolve na iteração sobre as linhas e colunas da mesma, além da iteração sobre o intervalo no vetor de entrada. Como visto, a Matriz de Nubby é uma matriz quadrada $n \times n$, e o tamanho máximo do intervalo iterado sobre o vetor de entrada é $n$. Assim, iterando sobre $n$ linhas, $n$ colunas e um máximo de $n$ itens do vetor, a complexidade temporal da criação da matriz é da ordem de $O(n^3)$.
+A criação da matriz envolve na iteração sobre as linhas e colunas da mesma, além da iteração sobre o intervalo no vetor de entrada. Como visto, a Matriz de Nubby é uma matriz quadrada $n \times n$, e o tamanho máximo do intervalo iterado sobre o vetor de entrada é $n$. Assim, iterando sobre $n$ linhas, $n$ colunas e um máximo de $n$ itens do vetor, a complexidade temporal da criação da matriz é $O(n^3)$.
 
 Uma vez criada, a busca pelos dados de um intervalo de $i$ a $j$ na matriz é feito através dos índices $i$ e $j$, resultando em apenas uma instrução de leitura. Assim, a complexidade temporal da busca na matriz é $O(1)$.
 
@@ -80,14 +80,14 @@ A criação da árvore envolve a criação de todos os nós e a computação dos
 A busca pelos dados de um intervalo na árvore feita através da sobreposição do intervalo do nó e do intervalo especificado:
 
 \begin{itemize}
-\item Começando pela raíz, se a sobreposição for total, o intervalo buscado é o maior possível, e as informações já se encontram na raíz. Este é o melhor caso, e a complexidade temporal é $O(1)$, por que só precisamos recuperar os dados da raíz;
+\item Começando pela raíz, se a sobreposição for total, encontramos o nó correspondente ao intervalo buscado. No caso da matriz, o intervalo é o maior possível, e as informações já se encontram na raíz. Este é o melhor caso, e a complexidade temporal é $O(1)$, por que só precisamos recuperar os dados da raíz;
 \item Se a sobreposição for parcial, a busca se extende para os 2 nós-filhos do nó em questão;
 \item Se não houver interseção alguma entre os intervalos do nó e da busca, a busca não se extende para os filhos deste nó.
 \end{itemize}
 
-O pior caso acontece quando a busca se extende até os nós-folha. Neste caso, o algoritmo precisou percorrer um caminho correspondente à altura total da árvore. A altura $h$ da árvore é dada por $h = \log N$\footnote{\url{http://www.dgp.toronto.edu/people/JamesStewart/378notes/09treeHeight/}}, sendo $N$ o número de nós da árvore. Como visto, a complexidade do número de nós da árvore é $O(n)$, sendo $n$ o tamanho do vetor de entrada, concluímos que a complexidade temporal no pior caso é $O(log n)$.
+O pior caso acontece quando a busca se extende até os nós-folha. Neste caso, o algoritmo percorre um caminho correspondente à altura total da árvore. A altura $h$ da árvore é dada por $h = \log N$\footnote{\url{http://www.dgp.toronto.edu/people/JamesStewart/378notes/09treeHeight/}}, sendo $N$ o número de nós da árvore. Como visto, a complexidade do número de nós da árvore é $O(n)$, sendo $n$ o tamanho do vetor de entrada, concluímos que a complexidade temporal no pior caso é $O(log n)$.
 
-A atualização da árvore consiste na mudança dos valores dos nós-folha correspondenes ao itens que estão contidos no intervalo a ser atualizado. Assim, para chegar ao nó-folha, precisamos percorrer um caminho do tamanho da altura da árvore. Assim, a partir do raciocínio do pior caso da busca, também podemos concluir que a complexidade temporal da atualização é $O(log n)$.
+A atualização da árvore consiste na mudança dos valores dos nós-folha correspondentes ao itens que estão contidos no intervalo a ser atualizado. Assim, para chegar ao nó-folha, precisamos percorrer um caminho do tamanho da altura da árvore. Assim, a partir do raciocínio do pior caso da busca, também podemos concluir que a complexidade temporal da atualização é $O(log n)$.
 
 \section{Conclusão}
 
