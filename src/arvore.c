@@ -40,11 +40,11 @@ int main() {
         } else if(strcmp(cmd, "Sub") == 0) {
             SegTree_update(segtree, n, a, b, sub);
         } else if(strcmp(cmd, "Min") == 0) {
-            printf("%d\n", (SegTree_query(segtree, n, a, b)).min);
+            printf("%lld\n", (SegTree_query(segtree, n, a, b)).min);
         } else if(strcmp(cmd, "Max") == 0) {
-            printf("%d\n", (SegTree_query(segtree, n, a, b)).max);
+            printf("%lld\n", (SegTree_query(segtree, n, a, b)).max);
         } else if(strcmp(cmd, "Sum") == 0) {
-            printf("%d\n", (SegTree_query(segtree, n, a, b)).sum);
+            printf("%lld\n", (SegTree_query(segtree, n, a, b)).sum);
         }
     }
 

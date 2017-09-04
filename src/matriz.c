@@ -42,11 +42,11 @@ int main() {
             for(j = a - 1; j < b; j++) array[j]--;
             Matrix_fill(matrix, array, n);
         } else if(strcmp(cmd, "Min") == 0) {
-            printf("%d\n", matrix[a-1][b-1].min);
+            printf("%lld\n", matrix[a-1][b-1].min);
         } else if(strcmp(cmd, "Max") == 0) {
-            printf("%d\n", matrix[a-1][b-1].max);
+            printf("%lld\n", matrix[a-1][b-1].max);
         } else if(strcmp(cmd, "Sum") == 0) {
-            printf("%d\n", matrix[a-1][b-1].sum);
+            printf("%lld\n", matrix[a-1][b-1].sum);
         }
     }
 

@@ -4,16 +4,13 @@
 /**
  * @brief      Cell structure
  *
- *             This struct stores the max, min and the sum of the interval. Also
- *             stores the i and j indexes.
+ *             This struct stores the max, min and the sum of the interval.
  */
 struct cell {
-    /** The interval i to j on the array */
-    int i, j;
     /** Minimum and Maximum value of the interval */
-    int min, max;
+    long long min, max;
     /** Sum of the interval */
-    int sum;
+    long long sum;
 };
 
 typedef struct cell Cell;

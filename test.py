@@ -113,14 +113,15 @@ def get_results_from_range(bin, start, end, step=1) :
         results.append(result)
     return results
 
-for i in range(0, 10000001, 1000) :
-    generate_input(i)
+# for i in range(0, 10000001, 1000) :
+#     generate_input(i)
 
-arvore_results = get_results_from_range("bin/arvore", 0, 1000001, step=1000)
+# arvore_results = get_results_from_range("bin/arvore", 0, 1000001, step=1000)
+arvore_results = get_results_from_range("bin/arvore", 0, 101, step=10)
 get_graphics("arvore", np.array(arvore_results))
 
-for i in range(0, 501, 10) :
-    generate_input(i)
+# for i in range(0, 501, 10) :
+#     generate_input(i)
 
-matriz_results = get_results_from_range("bin/matriz", 0, 501, step=10)
+matriz_results = get_results_from_range("bin/matriz", 0, 101, step=10)
 get_graphics("matriz", np.array(matriz_results))

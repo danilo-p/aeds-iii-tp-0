@@ -5,8 +5,6 @@
 Cell Cell_create() {
     Cell cell;
 
-    cell.i = 0;
-    cell.j = 0;
     cell.min = 0;
     cell.max = 0;
     cell.sum = 0;
@@ -19,13 +17,10 @@ void Cell_destroy(Cell *cell) {
 }
 
 void Cell_print(Cell cell) {
-    printf("%d,%d,%d", cell.min, cell.max, cell.sum);
+    printf("%lld,%lld,%lld", cell.min, cell.max, cell.sum);
 }
 
 void Cell_fill(Cell *cell, int *array, int i, int j) {
-    cell->i = i;
-    cell->j = j;
-
     int start = i < j ? i : j;
     int end   = i > j ? i : j;
 
