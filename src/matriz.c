@@ -10,7 +10,7 @@
  *             This function uses the Nubby solution based on a matrix that
  *             stores the data for each possible interval.
  *
- *             Complexity: O(n²)
+ *             Complexity: O(n³)
  *
  * @return     0
  */
