@@ -1,0 +1,93 @@
+\hypertarget{cell_8c}{}\section{src/lib/cell.c File Reference}
+\label{cell_8c}\index{src/lib/cell.\+c@{src/lib/cell.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}cell.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell} \hyperlink{cell_8c_acc97ca7469f3027653b38a74425f32a4}{Cell\+\_\+create} ()
+\begin{DoxyCompactList}\small\item\em Creates a new cell and initialize it\textquotesingle{}s values with 0. \end{DoxyCompactList}\item 
+void \hyperlink{cell_8c_a0727806dfd6db1c57e8dafd33f9801e0}{Cell\+\_\+destroy} (\hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell} $\ast$\hyperlink{structcell}{cell})
+\begin{DoxyCompactList}\small\item\em Destroys the given cell. \end{DoxyCompactList}\item 
+void \hyperlink{cell_8c_a501d9292c07b6ca818d693e47e40808c}{Cell\+\_\+print} (\hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell} \hyperlink{structcell}{cell})
+\begin{DoxyCompactList}\small\item\em Prints the content of the given cell. \end{DoxyCompactList}\item 
+void \hyperlink{cell_8c_a0c32ae6b280f2a882508c458ace5d44d}{Cell\+\_\+fill} (\hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell} $\ast$\hyperlink{structcell}{cell}, int $\ast$array, int i, int j)
+\begin{DoxyCompactList}\small\item\em Fill the cell data with the given array and intervals. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{cell_8c_acc97ca7469f3027653b38a74425f32a4}\label{cell_8c_acc97ca7469f3027653b38a74425f32a4}} 
+\index{cell.\+c@{cell.\+c}!Cell\+\_\+create@{Cell\+\_\+create}}
+\index{Cell\+\_\+create@{Cell\+\_\+create}!cell.\+c@{cell.\+c}}
+\subsubsection{\texorpdfstring{Cell\+\_\+create()}{Cell\_create()}}
+{\footnotesize\ttfamily \hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell} Cell\+\_\+create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates a new cell and initialize it\textquotesingle{}s values with 0. 
+
+Complexity\+: O(1)
+
+\begin{DoxyReturn}{Returns}
+The created cell 
+\end{DoxyReturn}
+\mbox{\Hypertarget{cell_8c_a0727806dfd6db1c57e8dafd33f9801e0}\label{cell_8c_a0727806dfd6db1c57e8dafd33f9801e0}} 
+\index{cell.\+c@{cell.\+c}!Cell\+\_\+destroy@{Cell\+\_\+destroy}}
+\index{Cell\+\_\+destroy@{Cell\+\_\+destroy}!cell.\+c@{cell.\+c}}
+\subsubsection{\texorpdfstring{Cell\+\_\+destroy()}{Cell\_destroy()}}
+{\footnotesize\ttfamily void Cell\+\_\+destroy (\begin{DoxyParamCaption}\item[{\hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell} $\ast$}]{cell }\end{DoxyParamCaption})}
+
+
+
+Destroys the given cell. 
+
+Complexity\+: O(1)
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell} & The cell to be destroyed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{cell_8c_a0c32ae6b280f2a882508c458ace5d44d}\label{cell_8c_a0c32ae6b280f2a882508c458ace5d44d}} 
+\index{cell.\+c@{cell.\+c}!Cell\+\_\+fill@{Cell\+\_\+fill}}
+\index{Cell\+\_\+fill@{Cell\+\_\+fill}!cell.\+c@{cell.\+c}}
+\subsubsection{\texorpdfstring{Cell\+\_\+fill()}{Cell\_fill()}}
+{\footnotesize\ttfamily void Cell\+\_\+fill (\begin{DoxyParamCaption}\item[{\hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell} $\ast$}]{cell,  }\item[{int $\ast$}]{array,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+Fill the cell data with the given array and intervals. 
+
+Complexity\+: O(size-\/end)
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em cell} & The cell \\
+\hline
+ & {\em array} & The array \\
+\hline
+\mbox{\tt in}  & {\em i} & Start of the interval \\
+\hline
+\mbox{\tt in}  & {\em j} & End of the interval \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{cell_8c_a501d9292c07b6ca818d693e47e40808c}\label{cell_8c_a501d9292c07b6ca818d693e47e40808c}} 
+\index{cell.\+c@{cell.\+c}!Cell\+\_\+print@{Cell\+\_\+print}}
+\index{Cell\+\_\+print@{Cell\+\_\+print}!cell.\+c@{cell.\+c}}
+\subsubsection{\texorpdfstring{Cell\+\_\+print()}{Cell\_print()}}
+{\footnotesize\ttfamily void Cell\+\_\+print (\begin{DoxyParamCaption}\item[{\hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell}}]{cell }\end{DoxyParamCaption})}
+
+
+
+Prints the content of the given cell. 
+
+It doesn\textquotesingle{}t print a new line.
+
+Complexity\+: O(1)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cell} & The cell \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,253 @@
+\hypertarget{segtree_8h}{}\section{src/lib/segtree.h File Reference}
+\label{segtree_8h}\index{src/lib/segtree.\+h@{src/lib/segtree.\+h}}
+{\ttfamily \#include \char`\"{}cell.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{segtree_8h_a321d199c21ac5c2ea399e04d2359a38c}{Seg\+Tree\+\_\+construct} (\hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell} $\ast$segtree, int pos, int $\ast$array, int start, int end)
+\begin{DoxyCompactList}\small\item\em Recursively constructs the Segment Tree. \end{DoxyCompactList}\item 
+int \hyperlink{segtree_8h_ae59da709e330c52fd5c63566e2e7661d}{Seg\+Tree\+\_\+size} (int n)
+\begin{DoxyCompactList}\small\item\em Calculates the Segment Tree\textquotesingle{}s number of nodes with the given the input array size. \end{DoxyCompactList}\item 
+\hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell} $\ast$ \hyperlink{segtree_8h_ad62ffae627982fa7b5b3016b17c0a8f5}{Seg\+Tree\+\_\+create} (int $\ast$array, int n)
+\begin{DoxyCompactList}\small\item\em Creates a new Segment Tree. \end{DoxyCompactList}\item 
+void \hyperlink{segtree_8h_af716d4a3b5f3a55ecd42222903f61723}{Seg\+Tree\+\_\+destroy} (\hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell} $\ast$segtree)
+\begin{DoxyCompactList}\small\item\em Destroys the given Segment Tree. \end{DoxyCompactList}\item 
+\hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell} \hyperlink{segtree_8h_a9ecc161209d161c1a05460ec88a16b9b}{Seg\+Tree\+\_\+range\+Query} (\hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell} $\ast$segtree, int pos, int start, int end, int curr\+Start, int curr\+End)
+\begin{DoxyCompactList}\small\item\em Perform a range query on the Segment Tree recursivelly. \end{DoxyCompactList}\item 
+\hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell} \hyperlink{segtree_8h_a6debc45c2c1a99c3d6ad7ba59f2ca2fb}{Seg\+Tree\+\_\+query} (\hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell} $\ast$segtree, int n, int start, int end)
+\begin{DoxyCompactList}\small\item\em Interface for the recursive range query. \end{DoxyCompactList}\item 
+void \hyperlink{segtree_8h_ac28b83d7ff12677a1611a7f104f84b34}{Seg\+Tree\+\_\+range\+Update} (\hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell} $\ast$segtree, int pos, int start, int end, int curr\+Start, int curr\+End, int($\ast$transform)(int n))
+\begin{DoxyCompactList}\small\item\em Recursively updates the Segment Tree. \end{DoxyCompactList}\item 
+void \hyperlink{segtree_8h_ace52cee81e0db45fff135ce4fd535ab2}{Seg\+Tree\+\_\+update} (\hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell} $\ast$segtree, int n, int start, int end, int($\ast$transform)(int n))
+\begin{DoxyCompactList}\small\item\em Interface for the recursive segtree update. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{segtree_8h_a321d199c21ac5c2ea399e04d2359a38c}\label{segtree_8h_a321d199c21ac5c2ea399e04d2359a38c}} 
+\index{segtree.\+h@{segtree.\+h}!Seg\+Tree\+\_\+construct@{Seg\+Tree\+\_\+construct}}
+\index{Seg\+Tree\+\_\+construct@{Seg\+Tree\+\_\+construct}!segtree.\+h@{segtree.\+h}}
+\subsubsection{\texorpdfstring{Seg\+Tree\+\_\+construct()}{SegTree\_construct()}}
+{\footnotesize\ttfamily void Seg\+Tree\+\_\+construct (\begin{DoxyParamCaption}\item[{\hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell} $\ast$}]{segtree,  }\item[{int}]{pos,  }\item[{int $\ast$}]{array,  }\item[{int}]{start,  }\item[{int}]{end }\end{DoxyParamCaption})}
+
+
+
+Recursively constructs the Segment Tree. 
+
+Complexity\+:
+
+With n being the Segment Tree\textquotesingle{}s number of nodes, the complexity is O(n), because we need to visit every node of the tree to calculate its data.
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em segtree} & The Segment Tree array \\
+\hline
+\mbox{\tt in}  & {\em pos} & The current position on the segtree \\
+\hline
+\mbox{\tt in}  & {\em array} & The input array \\
+\hline
+\mbox{\tt in}  & {\em start} & The start of the interval (0-\/indexed, inclusive) \\
+\hline
+\mbox{\tt in}  & {\em end} & The end of the interval (0-\/indexed, inclusive) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{segtree_8h_ad62ffae627982fa7b5b3016b17c0a8f5}\label{segtree_8h_ad62ffae627982fa7b5b3016b17c0a8f5}} 
+\index{segtree.\+h@{segtree.\+h}!Seg\+Tree\+\_\+create@{Seg\+Tree\+\_\+create}}
+\index{Seg\+Tree\+\_\+create@{Seg\+Tree\+\_\+create}!segtree.\+h@{segtree.\+h}}
+\subsubsection{\texorpdfstring{Seg\+Tree\+\_\+create()}{SegTree\_create()}}
+{\footnotesize\ttfamily \hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell}$\ast$ Seg\+Tree\+\_\+create (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Creates a new Segment Tree. 
+
+Complexity\+:
+
+The complexity for creating a new Segment Tree is related to the function Seg\+Tree\+\_\+construct, which is O(\+N), being N the number of nodes of the tree.
+
+The number of nodes N, in the best case is 2·n-\/1, with n being the input array length. In worst case N will not pass from 4·n-\/1. The full explanation for this is on the Seg\+Tree\+\_\+size function description.
+
+In all cases, the complexity for creating a new Segment Tree is O(n).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em array} & The input array \\
+\hline
+\mbox{\tt in}  & {\em n} & The input array length\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the created Segment Tree 
+\end{DoxyReturn}
+\mbox{\Hypertarget{segtree_8h_af716d4a3b5f3a55ecd42222903f61723}\label{segtree_8h_af716d4a3b5f3a55ecd42222903f61723}} 
+\index{segtree.\+h@{segtree.\+h}!Seg\+Tree\+\_\+destroy@{Seg\+Tree\+\_\+destroy}}
+\index{Seg\+Tree\+\_\+destroy@{Seg\+Tree\+\_\+destroy}!segtree.\+h@{segtree.\+h}}
+\subsubsection{\texorpdfstring{Seg\+Tree\+\_\+destroy()}{SegTree\_destroy()}}
+{\footnotesize\ttfamily void Seg\+Tree\+\_\+destroy (\begin{DoxyParamCaption}\item[{\hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell} $\ast$}]{segtree }\end{DoxyParamCaption})}
+
+
+
+Destroys the given Segment Tree. 
+
+Complexity\+: O(1)
+
+
+\begin{DoxyParams}{Parameters}
+{\em segtree} & The segtree \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{segtree_8h_a6debc45c2c1a99c3d6ad7ba59f2ca2fb}\label{segtree_8h_a6debc45c2c1a99c3d6ad7ba59f2ca2fb}} 
+\index{segtree.\+h@{segtree.\+h}!Seg\+Tree\+\_\+query@{Seg\+Tree\+\_\+query}}
+\index{Seg\+Tree\+\_\+query@{Seg\+Tree\+\_\+query}!segtree.\+h@{segtree.\+h}}
+\subsubsection{\texorpdfstring{Seg\+Tree\+\_\+query()}{SegTree\_query()}}
+{\footnotesize\ttfamily \hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell} Seg\+Tree\+\_\+query (\begin{DoxyParamCaption}\item[{\hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell} $\ast$}]{segtree,  }\item[{int}]{n,  }\item[{int}]{start,  }\item[{int}]{end }\end{DoxyParamCaption})}
+
+
+
+Interface for the recursive range query. 
+
+Complexity\+: The complexity here is related to the complexity of the Seg\+Tree\+\_\+range\+Query function, which is O(log N), being N the number of nodes of the tree.
+
+The number of nodes N, in the best case is 2·n-\/1, with n being the input array length. In worst case N will not pass from 4·n-\/1. The full explanation for this is on the Seg\+Tree\+\_\+size function description.
+
+With 2·n-\/1 or 4·n-\/1, the complexity of the function is O(log n).
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em segtree} & The segtree \\
+\hline
+\mbox{\tt in}  & {\em n} & The input array length \\
+\hline
+\mbox{\tt in}  & {\em start} & The start of the interval (1-\/indexed, inclusive) \\
+\hline
+\mbox{\tt in}  & {\em end} & The end of the interval (1-\/indexed, inclusive)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The results of the query 
+\end{DoxyReturn}
+\mbox{\Hypertarget{segtree_8h_a9ecc161209d161c1a05460ec88a16b9b}\label{segtree_8h_a9ecc161209d161c1a05460ec88a16b9b}} 
+\index{segtree.\+h@{segtree.\+h}!Seg\+Tree\+\_\+range\+Query@{Seg\+Tree\+\_\+range\+Query}}
+\index{Seg\+Tree\+\_\+range\+Query@{Seg\+Tree\+\_\+range\+Query}!segtree.\+h@{segtree.\+h}}
+\subsubsection{\texorpdfstring{Seg\+Tree\+\_\+range\+Query()}{SegTree\_rangeQuery()}}
+{\footnotesize\ttfamily \hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell} Seg\+Tree\+\_\+range\+Query (\begin{DoxyParamCaption}\item[{\hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell} $\ast$}]{segtree,  }\item[{int}]{pos,  }\item[{int}]{start,  }\item[{int}]{end,  }\item[{int}]{curr\+Start,  }\item[{int}]{curr\+End }\end{DoxyParamCaption})}
+
+
+
+Perform a range query on the Segment Tree recursivelly. 
+
+Complexity\+:
+
+In the best case, the range of the query will be from 0 to (L -\/ 1), being L the length of the input array. In this case, the complexity for retrieving data from the segtree is O(1).
+
+In the worst case, the range of the query will have length of 1 (query of 1 element). In this case, the alghoritm will dive into the tree til reach the correspondant leaf. The complexity for retrieving the leaf data will be of O(\+H), with H begin the height of the tree.
+
+As the Segment Tree is a Full Binary Tree, the height of the tree will correspond log N, being N the number of nodes. So the complexity for retrieving data from a leaf is O(log N).
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em segtree} & The segtree \\
+\hline
+\mbox{\tt in}  & {\em pos} & The position \\
+\hline
+\mbox{\tt in}  & {\em start} & The start of the interval (0-\/indexed, inclusive) \\
+\hline
+\mbox{\tt in}  & {\em end} & The end of the interval (0-\/indexed, inclusive) \\
+\hline
+\mbox{\tt in}  & {\em curr\+Start} & The current start of the interval (0-\/indexed, inclusive) \\
+\hline
+\mbox{\tt in}  & {\em curr\+End} & The current end of the interval (0-\/indexed, inclusive)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The results of the query 
+\end{DoxyReturn}
+\mbox{\Hypertarget{segtree_8h_ac28b83d7ff12677a1611a7f104f84b34}\label{segtree_8h_ac28b83d7ff12677a1611a7f104f84b34}} 
+\index{segtree.\+h@{segtree.\+h}!Seg\+Tree\+\_\+range\+Update@{Seg\+Tree\+\_\+range\+Update}}
+\index{Seg\+Tree\+\_\+range\+Update@{Seg\+Tree\+\_\+range\+Update}!segtree.\+h@{segtree.\+h}}
+\subsubsection{\texorpdfstring{Seg\+Tree\+\_\+range\+Update()}{SegTree\_rangeUpdate()}}
+{\footnotesize\ttfamily void Seg\+Tree\+\_\+range\+Update (\begin{DoxyParamCaption}\item[{\hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell} $\ast$}]{segtree,  }\item[{int}]{pos,  }\item[{int}]{start,  }\item[{int}]{end,  }\item[{int}]{curr\+Start,  }\item[{int}]{curr\+End,  }\item[{int($\ast$)(int n)}]{transform }\end{DoxyParamCaption})}
+
+
+
+Recursively updates the Segment Tree. 
+
+Complexity\+:
+
+As the updates are realized on the leafs of the tree, and then the nodes that represent the intervals have to be updated, the cost on the update will be related to the amount of nodes that has to be updated plus the height of the tree. The cost to reach a leaf is log H, being H the height of the tree. Let LF the number of leafs to be updated, that is the same as the size of the interval to be updated (end-\/start-\/1).
+
+As the Segment Tree is a Full Binary Tree, the height of the tree will correspond log N, being N the number of nodes. So the complexity for retrieving data from a leaf is O(log N).
+
+The complexity of a update is O(L\+F·log N).
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em segtree} & The segtree \\
+\hline
+\mbox{\tt in}  & {\em pos} & The current position on the segtree array \\
+\hline
+\mbox{\tt in}  & {\em start} & The start of the interval (0-\/indexed, inclusive) \\
+\hline
+\mbox{\tt in}  & {\em end} & The end of the interval (0-\/indexed, inclusive) \\
+\hline
+\mbox{\tt in}  & {\em curr\+Start} & The current start of the interval (0-\/indexed, inclusive) \\
+\hline
+\mbox{\tt in}  & {\em curr\+End} & The current end of the interval (0-\/indexed, inclusive) \\
+\hline
+\mbox{\tt in}  & {\em transform} & The function that will transform the leafs data. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{segtree_8h_ae59da709e330c52fd5c63566e2e7661d}\label{segtree_8h_ae59da709e330c52fd5c63566e2e7661d}} 
+\index{segtree.\+h@{segtree.\+h}!Seg\+Tree\+\_\+size@{Seg\+Tree\+\_\+size}}
+\index{Seg\+Tree\+\_\+size@{Seg\+Tree\+\_\+size}!segtree.\+h@{segtree.\+h}}
+\subsubsection{\texorpdfstring{Seg\+Tree\+\_\+size()}{SegTree\_size()}}
+{\footnotesize\ttfamily int Seg\+Tree\+\_\+size (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Calculates the Segment Tree\textquotesingle{}s number of nodes with the given the input array size. 
+
+The number of nodes n required for a segtree is calculated with the length of the input array. In the best case, the length L is a power of 2, so the number of nodes is n=2·\+L-\/1. If L is not a power of 2, we have to find the next power of 2 after L. In this case, the number of nodes will not pass from n=2·2$^\wedge$((log L) + 1) -\/ 1, which can be simplified to n=4·\+L-\/1.
+
+Being n the input array length, let np the power of 2 that is equal or higher than n. The size of the Segment Tree array will be 2·np-\/1.
+
+The strategy adopted here is to calculate the log2 of n and get the ceil of the result. This way, we can power 2 for the result and get the next power of 2. Then, we use 2·(2$^\wedge$np)-\/1 to get the the size of the Segment Tree array.
+
+Complexity\+: (1)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em n} & The input array size\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The size of the Segment Tree array 
+\end{DoxyReturn}
+\mbox{\Hypertarget{segtree_8h_ace52cee81e0db45fff135ce4fd535ab2}\label{segtree_8h_ace52cee81e0db45fff135ce4fd535ab2}} 
+\index{segtree.\+h@{segtree.\+h}!Seg\+Tree\+\_\+update@{Seg\+Tree\+\_\+update}}
+\index{Seg\+Tree\+\_\+update@{Seg\+Tree\+\_\+update}!segtree.\+h@{segtree.\+h}}
+\subsubsection{\texorpdfstring{Seg\+Tree\+\_\+update()}{SegTree\_update()}}
+{\footnotesize\ttfamily void Seg\+Tree\+\_\+update (\begin{DoxyParamCaption}\item[{\hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell} $\ast$}]{segtree,  }\item[{int}]{n,  }\item[{int}]{start,  }\item[{int}]{end,  }\item[{int($\ast$)(int n)}]{transform }\end{DoxyParamCaption})}
+
+
+
+Interface for the recursive segtree update. 
+
+Complexity\+: The complexity here is related to the complexity of the Seg\+Tree\+\_\+range\+Update function, which is O(L\+F·log N), being N the number of nodes of the tree, and LF is end -\/ start -\/ 1.
+
+The number of nodes N, in the best case is 2·n-\/1, with n being the input array length. In worst case N will not pass from 4·n-\/1. The full explanation for this is on the Seg\+Tree\+\_\+size function description.
+
+With 2·n-\/1 or 4·n-\/1, the complexity of the function is O(L\+F·log n).
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em segtree} & The segtree \\
+\hline
+\mbox{\tt in}  & {\em n} & The length of the input array \\
+\hline
+\mbox{\tt in}  & {\em start} & The start of the interval (1-\/indexed, inclusive) \\
+\hline
+\mbox{\tt in}  & {\em end} & The end of the interval (1-\/indexed, inclusive) \\
+\hline
+\mbox{\tt in}  & {\em transform} & The transform function \\
+\hline
+\end{DoxyParams}

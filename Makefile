@@ -4,7 +4,7 @@ ROOT_DIR=$(pwd)
 OBJ_DIR=obj
 BIN_DIR=bin
 SRC_DIR=src
-DOCS_DIR=docs
+DOCS_DIR=docs/doxygen
 
 SRC=$(wildcard $(SRC_DIR)/**/*.c)
 

@@ -1,0 +1,99 @@
+\hypertarget{matrix_8c}{}\section{src/lib/matrix.c File Reference}
+\label{matrix_8c}\index{src/lib/matrix.\+c@{src/lib/matrix.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}cell.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}matrix.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell} $\ast$$\ast$ \hyperlink{matrix_8c_aacc22a33980f7ed8580bb9ce78194140}{Matrix\+\_\+create} (int n)
+\begin{DoxyCompactList}\small\item\em Builds the matrix with the given array. \end{DoxyCompactList}\item 
+void \hyperlink{matrix_8c_a00f353c8c2734c014ca6b38c35ff0834}{Matrix\+\_\+fill} (\hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell} $\ast$$\ast$matrix, int $\ast$array, int n)
+\begin{DoxyCompactList}\small\item\em Fills the matrix with the given data. \end{DoxyCompactList}\item 
+void \hyperlink{matrix_8c_a3b2e04a92aa57d1af2af73272ecdaaec}{Matrix\+\_\+destroy} (\hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell} $\ast$$\ast$matrix, int n)
+\begin{DoxyCompactList}\small\item\em Destroys the matrix. \end{DoxyCompactList}\item 
+void \hyperlink{matrix_8c_aa5740b359a4afbeade629b936c918775}{Matrix\+\_\+print} (\hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell} $\ast$$\ast$matrix, int n)
+\begin{DoxyCompactList}\small\item\em Prints the matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{matrix_8c_aacc22a33980f7ed8580bb9ce78194140}\label{matrix_8c_aacc22a33980f7ed8580bb9ce78194140}} 
+\index{matrix.\+c@{matrix.\+c}!Matrix\+\_\+create@{Matrix\+\_\+create}}
+\index{Matrix\+\_\+create@{Matrix\+\_\+create}!matrix.\+c@{matrix.\+c}}
+\subsubsection{\texorpdfstring{Matrix\+\_\+create()}{Matrix\_create()}}
+{\footnotesize\ttfamily \hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell}$\ast$$\ast$ Matrix\+\_\+create (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Builds the matrix with the given array. 
+
+Complexity\+: O(n²)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em n} & The length of the input array\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the created matrix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_8c_a3b2e04a92aa57d1af2af73272ecdaaec}\label{matrix_8c_a3b2e04a92aa57d1af2af73272ecdaaec}} 
+\index{matrix.\+c@{matrix.\+c}!Matrix\+\_\+destroy@{Matrix\+\_\+destroy}}
+\index{Matrix\+\_\+destroy@{Matrix\+\_\+destroy}!matrix.\+c@{matrix.\+c}}
+\subsubsection{\texorpdfstring{Matrix\+\_\+destroy()}{Matrix\_destroy()}}
+{\footnotesize\ttfamily void Matrix\+\_\+destroy (\begin{DoxyParamCaption}\item[{\hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell} $\ast$$\ast$}]{matrix,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Destroys the matrix. 
+
+Complexity\+: O(n)
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em matrix} & The matrix \\
+\hline
+\mbox{\tt in}  & {\em n} & The length of the input array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{matrix_8c_a00f353c8c2734c014ca6b38c35ff0834}\label{matrix_8c_a00f353c8c2734c014ca6b38c35ff0834}} 
+\index{matrix.\+c@{matrix.\+c}!Matrix\+\_\+fill@{Matrix\+\_\+fill}}
+\index{Matrix\+\_\+fill@{Matrix\+\_\+fill}!matrix.\+c@{matrix.\+c}}
+\subsubsection{\texorpdfstring{Matrix\+\_\+fill()}{Matrix\_fill()}}
+{\footnotesize\ttfamily void Matrix\+\_\+fill (\begin{DoxyParamCaption}\item[{\hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell} $\ast$$\ast$}]{matrix,  }\item[{int $\ast$}]{array,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Fills the matrix with the given data. 
+
+Complexity\+: O(n³), because the maximum interval given to Cell\+\_\+\+Fill has size n, and is executed n² times.
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em matrix} & The matrix \\
+\hline
+ & {\em array} & The array \\
+\hline
+\mbox{\tt in}  & {\em n} & The length of the input array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{matrix_8c_aa5740b359a4afbeade629b936c918775}\label{matrix_8c_aa5740b359a4afbeade629b936c918775}} 
+\index{matrix.\+c@{matrix.\+c}!Matrix\+\_\+print@{Matrix\+\_\+print}}
+\index{Matrix\+\_\+print@{Matrix\+\_\+print}!matrix.\+c@{matrix.\+c}}
+\subsubsection{\texorpdfstring{Matrix\+\_\+print()}{Matrix\_print()}}
+{\footnotesize\ttfamily void Matrix\+\_\+print (\begin{DoxyParamCaption}\item[{\hyperlink{cell_8h_a5a015017629833d016e38b49dca7b1c3}{Cell} $\ast$$\ast$}]{matrix,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Prints the matrix. 
+
+Complexity\+: O(n²)
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em matrix} & The matrix \\
+\hline
+\mbox{\tt in}  & {\em n} & The length of the input array \\
+\hline
+\end{DoxyParams}
